@@ -1,4 +1,4 @@
-<style>
+
     /* Remove the navbar's default margin-bottom and rounded borders */
     .navbar {
       margin-bottom: 0;
@@ -10,17 +10,7 @@
       background-color: #f2f2f2;
       padding: 25px;
     }
-  </style>
 
-
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
 
 .App-header {
   background-color: #222;
@@ -36,8 +26,67 @@
 .App-intro {
   font-size: large;
 }
+.border {
+    border: 1px solid red;
+  }
+  .border-blue {
+    border: 1px solid blue;
+  }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+/* book grid */
+
+.books-grid {
+  margin: 0px;
+  justify-content: center;
+
 }
+
+/* book */
+.book {
+  padding: 10px 15px;
+  margin: 18px;
+  height: 300px;
+}
+.book-top {
+  position: relative;
+  height: 60px;
+}
+.book-title,
+.book-authors {
+  font-size: 1em;
+}
+
+.book-authors {
+  color: #999;
+}
+.book-bottom {
+  position: relative;
+  height: 200px;
+  display: flex;
+  align-items: flex-end;
+}
+.book-cover {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  background: #eee;
+}
+.book-shelf-changer {
+  position: absolute;
+  left: 105px;
+  bottom: -7px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #999;
+  background-image: url('./icons/arrow-drop-down.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+.book-shelf-changer select {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
