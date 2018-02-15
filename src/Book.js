@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import './App.css'
 
 class Book extends Component{
-
+     state ={
+     	shelf: ''
+     }
 
 	render(){
 		 const url = this.props.url;
@@ -18,8 +20,8 @@ class Book extends Component{
 			      <div className="book-cover text-center" style={divStyle}>
 
 			      </div>
-			      <div className="book-shelf-changer">
-                      <select>
+			      <div className="book-shelf-changer"> shelf : {this.state.shelf}
+                      <select onChange={(e)=> this.props.onChangeShelf( this.props.title, e.target.value)}>
                         <option value="none" disabled>Move to...</option>
                         <option value="currentlyReading" >Currently Reading</option>
                         <option value="wantToRead">Want to Read</option>

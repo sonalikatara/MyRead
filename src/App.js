@@ -9,9 +9,19 @@ class App extends Component {
   }
 
   componentDidMount(){
-     BooksAPI.getAll().then((books) =>{
+    if(this.state.books.length === 0){
+      BooksAPI.getAll().then((books) =>{
       this.setState({books})
     })
+    }
+
+  }
+
+  changeBookShelf = (title, newShelf) =>{
+    let myBook = this.state.books.findIndex((book)=> book.title === title );
+    let allBooks = this.state.books;
+    allBooks[myBook].shelf = newShelf;
+    this.setState({ books: allBooks});
   }
 
   render() {
@@ -23,6 +33,7 @@ class App extends Component {
         </header>
         <div >
           <BooksList
+            onChangeBookShelf = {this.changeBookShelf}
             books={this.state.books}
           />
         </div>
