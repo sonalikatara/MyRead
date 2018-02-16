@@ -12,10 +12,24 @@ class BooksList extends Component {
 	 	query: ''
 	 }
 
+	 updateQuery = (query) => {
+	 	this.setState({ query: query })
+	 }
+
 	render(){
 		return(
 			//books.sort(sortBy('shelf'));
-            <div >
+			<div >
+			<div className="list-books-top">
+				<input
+				   className='search-books'
+				   type='text'
+				   placeholder='Search Books'
+				   value={this.state.query}
+				   onChange={(event)=>this.updateQuery(event.target.value)}
+				 />
+			</div>
+			<div className="list-books" >
             <h3> Want To Read </h3>
 			<div className="row ">
 				{this.props.books.filter(book => book.shelf === "wantToRead").map((book)=>
@@ -43,8 +57,9 @@ class BooksList extends Component {
 				   	)}
 				<hr/>
 				 </div>
-
 			</div>
+			</div>
+
 			)
 	}
 }

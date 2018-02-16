@@ -21,7 +21,6 @@ static propTypes = {
 				</div>
 				<div className="book-bottom">
 			      <div className="book-cover text-center" style={divStyle}>
-
 			      </div>
 			      <div className="book-shelf-changer">
                       <select onChange={(e)=> this.props.onChangeShelf( myBook.title, e.target.value)} value={myBook.shelf}>
@@ -33,7 +32,6 @@ static propTypes = {
                       </select>
                    </div>
 	            </div>
-
 				</div>)
 	}
 }
