@@ -40,7 +40,7 @@ class BooksList extends Component {
 				   	)}
 				</div><hr/>
 				<div className="open-search">
-	              <Link to="/searchBooks">Search a book</Link>
+	              <Link to="/search">Search a book</Link>
 	            </div>
 			</div>
 			</div>

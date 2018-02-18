@@ -26,6 +26,7 @@ class App extends Component {
    BooksAPI.update(updateBook, newShelf).then(()=>{
      BooksAPI.getAll().then((books) =>{
       this.setState({books: books})
+      window.location.href = "/";
     })
    })
   }
@@ -46,13 +47,9 @@ class App extends Component {
               />
             )} />
 
-          <Route exact path="/searchBooks" render = {({history})=>(
+          <Route exact path="/search" render = {({})=>(
               <SearchBooks
-                onChangeBookShelf = {()=>{
-                    this.changeBookShelf
-                    history.push('/')
-                  }}
-
+                onChangeBookShelf = {this.changeBookShelf}
               />
           )} />
 
