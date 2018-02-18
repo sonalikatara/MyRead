@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
 import BooksList from './BooksList'
+import SearchBooks from './SearchBooks'
 import * as BooksAPI from './BooksAPI'
 
 class App extends Component {
@@ -8,20 +9,28 @@ class App extends Component {
     books: []
   }
 
-  componentDidMount(){
-    if(this.state.books.length === 0){
-      BooksAPI.getAll().then((books) =>{
-      this.setState({books})
+  getAllBooks = () => {
+    BooksAPI.getAll().then((books) =>{
+      this.setState({books: books})
     })
-    }
-
   }
 
-  changeBookShelf = (title, newShelf) =>{
-    let myBook = this.state.books.findIndex((book)=> book.title === title );
+  componentDidMount(){
+    if(this.state.books.length === 0){
+        this.getAllBooks();
+    }
+  }
+
+  changeBookShelf = (updateBook, newShelf) =>{
+    this.updateBookShelf(updateBook, newShelf)
+    let myBook = this.state.books.findIndex((book)=> book.id === updateBook.id );
     let allBooks = this.state.books;
     allBooks[myBook].shelf = newShelf;
     this.setState({ books: allBooks});
+  }
+
+  updateBookShelf = (updateBook, newShelf) => {
+    BooksAPI.update(updateBook, newShelf);
   }
 
   render() {
@@ -32,11 +41,11 @@ class App extends Component {
           <h1 className="App-title">Welcome to MyRead</h1>
         </header>
         <div>
-          <BooksList
+          <SearchBooks
             onChangeBookShelf = {this.changeBookShelf}
-            books={this.state.books}
           />
         </div>
+
       </div>
     );
   }

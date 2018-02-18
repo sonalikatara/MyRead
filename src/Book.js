@@ -10,7 +10,7 @@ static propTypes = {
 
 	render(){
 		 let myBook = this.props.book;
-		 const url = myBook.imageLinks.thumbnail;
+		 const url = myBook.imageLinks?myBook.imageLinks.thumbnail:'icons/search.svg';
 		 const divStyle = {width:128, height:193, backgroundImage: 'url(' + url + ')'}
 
 		return (
@@ -23,12 +23,12 @@ static propTypes = {
 			      <div className="book-cover text-center" style={divStyle}>
 			      </div>
 			      <div className="book-shelf-changer">
-                      <select onChange={(e)=> this.props.onChangeShelf( myBook.title, e.target.value)} value={myBook.shelf}>
+                      <select onChange={(e)=> this.props.onChangeShelf( myBook, e.target.value)} value={myBook.shelf?myBook.shelf:"None"}>
                         <option value="none" disabled>Move to...</option>
                         <option value="currentlyReading" >Currently Reading</option>
                         <option value="wantToRead"  >Want to Read</option>
                         <option value="read" >Read</option>
-                        <option value="none" >None</option>
+                        <option value="None" >None</option>
                       </select>
                    </div>
 	            </div>
