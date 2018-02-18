@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import { PropTypes } from 'prop-types'
-import escapeRegExp from 'escape-string-regexp'
-import sortBy from 'sort-by'
 import Book from './Book'
 import * as BooksAPI from './BooksAPI'
 
@@ -33,22 +32,26 @@ class SearchBooks extends Component {
 
 		return(
 			<div >
-			<div className="list-books-top">
-				<input
-				   className='search-books'
-				   type='text'
-				   placeholder='Search Books'
-				   value={this.state.query}
-				   onChange={(event)=>this.updateQuery(event.target.value)}
-				 />
-			</div>
-             <div className="row ">
-					{showingBooks.map((book)=>
-				   	<div className="col-sm-4 col-lg-3 text-center " key={book.id} >
-				   	   <Book book={book} onChangeShelf={this.props.onChangeBookShelf} />
-				   	</div>
-				   	)}
+			    <div className="close-search">
+			  		<Link to="/">Close</Link>
+			    </div>
+				<div className="list-books-top">
+					<input
+					   className='search-books'
+					   type='text'
+					   placeholder='Search Books by title or author'
+					   value={this.state.query}
+					   onChange={(event)=>this.updateQuery(event.target.value)}
+					 />
 				</div>
+	            <div className="row ">
+						{showingBooks.map((book)=>
+					   	<div className="col-sm-4 col-lg-3 text-center " key={book.id} >
+					   	   <Book book={book} onChangeShelf={this.props.onChangeBookShelf} />
+					   	</div>
+					   	)}
+				</div>
+
 			</div>
 			)
 	}

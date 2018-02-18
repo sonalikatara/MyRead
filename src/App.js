@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Route } from 'react-router-dom'
 import './App.css'
 import BooksList from './BooksList'
 import SearchBooks from './SearchBooks'
@@ -22,16 +23,13 @@ class App extends Component {
   }
 
   changeBookShelf = (updateBook, newShelf) =>{
-    this.updateBookShelf(updateBook, newShelf)
-    let myBook = this.state.books.findIndex((book)=> book.id === updateBook.id );
-    let allBooks = this.state.books;
-    allBooks[myBook].shelf = newShelf;
-    this.setState({ books: allBooks});
+   BooksAPI.update(updateBook, newShelf).then(()=>{
+     BooksAPI.getAll().then((books) =>{
+      this.setState({books: books})
+    })
+   })
   }
 
-  updateBookShelf = (updateBook, newShelf) => {
-    BooksAPI.update(updateBook, newShelf);
-  }
 
   render() {
     return (
@@ -41,9 +39,23 @@ class App extends Component {
           <h1 className="App-title">Welcome to MyRead</h1>
         </header>
         <div>
-          <SearchBooks
-            onChangeBookShelf = {this.changeBookShelf}
-          />
+          <Route exact path="/" render = {()=>(
+              <BooksList
+                onChangeBookShelf = {this.changeBookShelf}
+                books={this.state.books}
+              />
+            )} />
+
+          <Route exact path="/searchBooks" render = {({history})=>(
+              <SearchBooks
+                onChangeBookShelf = {()=>{
+                    this.changeBookShelf
+                    history.push('/')
+                  }}
+
+              />
+          )} />
+
         </div>
 
       </div>
