@@ -24,9 +24,7 @@ class SearchBooks extends Component {
 	 	} else {
 	 		this.setState({searchResult: []})
 	 	}
-
 	 }
-
 
 	render(){
 		let showingBooks = [];
@@ -35,7 +33,6 @@ class SearchBooks extends Component {
 
 		return(
 			<div >
-
 			<div className="list-books-top">
 				<input
 				   className='search-books'
