@@ -12,6 +12,7 @@ listen the server on http://localhost:3000
 
 ### Main Page
 ![Main Page](ScreenShotMain.png)
+
 The main page shows 3 shelves for books (currently reading, want to read, and read)
 
 It shows a control that allows users to move books between shelves. The control should is tied to each book instance.
@@ -20,6 +21,7 @@ When the browser is refreshed, the same information is displayed on the page.
 
 ### Search Page
 ![Main Page](ScreenShotSearch.png)
+
 The search page has a search input field. As the user types into the search field, books that match the query are displayed on the page.
 
 Search results on the search page allow the user to select “currently reading”, “want to read”, or “read” to place the book in a certain shelf.
