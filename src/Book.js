@@ -17,7 +17,7 @@ static propTypes = {
 			<div className="text-left book ">
 				<div className="book-top">
 				  <p className="book-title">{myBook.title}</p>
-				  <p className="book-authors">{myBook.authors}</p>
+				  <p className="book-authors">{myBook.authors?myBook.authors.join(", "):""}</p>
 				</div>
 				<div className="book-bottom">
 			      <div className="book-cover text-center" style={divStyle}>
@@ -31,7 +31,7 @@ static propTypes = {
                         <option value="none" >None</option>
                       </select>
                    </div>
-	            </div>
+	             </div>
 				</div>)
 	}
 }

@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
+import { Route , Switch } from 'react-router-dom'
 import './App.css'
 import BooksList from './BooksList'
 import SearchBooks from './SearchBooks'
+import NotFound from './NotFound'
 import * as BooksAPI from './BooksAPI'
 
 class App extends Component {
@@ -40,6 +41,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to MyRead</h1>
         </header>
         <div>
+        <Switch>
           <Route exact path="/" render = {()=>(
               <BooksList
                 onChangeBookShelf = {this.changeBookShelf}
@@ -52,7 +54,8 @@ class App extends Component {
                 onChangeBookShelf = {this.changeBookShelf}
               />
           )} />
-
+          <Route path="*" component={NotFound} />
+         </Switch>
         </div>
 
       </div>

@@ -1,13 +1,16 @@
-## MyReads : A Book Lending App
+## MyReads : A Book Lending App Built using REACT.js
 
 ### Project Setup
 
-The application was created with create-react-app and requires only npm install and npm start to get it installed and launched.
+The REACT application was created with create-react-app and requires only npm install and npm start to get it installed and launched.
 
 #### Installation and Launching
 clone the Project - git clone https://github.com/sonalikatara/MyRead
+
 install the dependencies - npm install
+
 start the project with npm - npm start serve
+
 listen the server on http://localhost:3000
 
 ### Main Page
