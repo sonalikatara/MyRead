@@ -6,6 +6,7 @@ import * as BooksAPI from './BooksAPI'
 
 class SearchBooks extends Component {
      static propTypes = {
+     	  books: PropTypes.array.isRequired,
 		  onChangeBookShelf: PropTypes.func.isRequired
 	     }
 
@@ -16,20 +17,43 @@ class SearchBooks extends Component {
 
 	 updateQuery = (query) => {
 	 	this.setState({ query: query })
+	 	let result = []
+	 	const books = this.props.books
 	 	if(query.length>0){
-	 		BooksAPI.search(query).then((searchResult) =>{
-	         Array.isArray(searchResult) ? this.setState({searchResult: searchResult}): this.setState({searchResult: []})
+	 		BooksAPI.search(query).then( searchResult =>{
+		        if(Array.isArray(searchResult) ){
+
+		        	searchResult.forEach(s => {
+		        		s.shelf = "";
+		        		//console.log("search book " + s.title)
+		        		books.forEach(b=>{
+		        			//console.log(s.title)
+		        			if(s.id===b.id){
+		        				s.shelf = b.shelf
+		        			}
+		        		})
+		        		result.push(s)
+
+		        	})
+
+		        }
+             console.log("result : " + result)
+             this.setState({searchResult: result})
 	      })
+
 	 	} else {
 	 		this.setState({searchResult: []})
+
 	 	}
+
+
 	 }
 
 	render(){
-		let showingBooks = [];
-		showingBooks = this.state.searchResult;
-        //console.log('showing Books : ' + JSON.stringify(showingBooks));
+		let showingBooks = []
+		showingBooks = this.state.searchResult
 
+        //showing : { JSON.stringify(showingBooks)}
 		return(
 			<div >
 			    <div className="close-search">

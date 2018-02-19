@@ -49,9 +49,10 @@ class App extends Component {
               />
             )} />
 
-          <Route exact path="/search" render = {({})=>(
+          <Route exact path="/search" render = {()=>(
               <SearchBooks
                 onChangeBookShelf = {this.changeBookShelf}
+                books={this.state.books}
               />
           )} />
           <Route path="*" component={NotFound} />
