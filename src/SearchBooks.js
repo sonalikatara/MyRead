@@ -37,16 +37,13 @@ class SearchBooks extends Component {
 		        	})
 
 		        }
-             console.log("result : " + result)
+             //console.log("result : " + result)
              this.setState({searchResult: result})
 	      })
 
 	 	} else {
 	 		this.setState({searchResult: []})
-
 	 	}
-
-
 	 }
 
 	render(){

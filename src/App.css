@@ -57,11 +57,11 @@
 }
 
 .book-authors {
-  color: #999;
+  color: #69A48A;
 }
 .book-bottom {
   position: relative;
-  height: 200px;
+  height: 210px;
   display: flex;
   align-items: flex-end;
 }
@@ -120,5 +120,19 @@
   background-repeat: no-repeat;
   background-size: 28px;
   font-size: 0;
+}
+
+.book-info {
+  position: absolute;
+  right: 10px;
+  bottom: 7px;
+  width: 120px;
+  height: 190px;
+  background: #999;
+  background-image: url('./icons/search.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 110px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
