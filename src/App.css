@@ -124,15 +124,17 @@
 
 .book-info {
   position: absolute;
-  right: 10px;
-  bottom: 7px;
+  left: 4px;
+  bottom: 5px;
   width: 120px;
-  height: 190px;
-  background: #999;
-  background-image: url('./icons/search.svg');
+  height: 180px;
+  background: #c4c4c4;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 110px;
+  padding: 4px;
+  opacity: 0.95;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  z-index: 1;
 }
 
